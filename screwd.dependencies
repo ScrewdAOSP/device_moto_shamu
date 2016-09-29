@@ -2,11 +2,11 @@
   {
     "repository": "ScrewdAOSP/proprietary_vendor_moto",
     "target_path": "vendor/moto",
-    "branch":      "m"
+    "branch":      "n"
   },
   {
     "repository": "ScrewdAOSP/kernel_moto_shamu",
     "target_path": "kernel/moto/shamu",
-    "branch":      "m"
+    "branch":      "n"
   }
 ]
