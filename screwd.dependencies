@@ -1,7 +1,7 @@
 [
   {
     "repository": "ScrewdAOSP/proprietary_vendor_motorola",
-    "target_path": "vendor/moto",
+    "target_path": "vendor/motorola",
     "branch":      "n"
   },
   {
