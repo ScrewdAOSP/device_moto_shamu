@@ -78,6 +78,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/motorola/shamu/bluetooth_e
 else
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/motorola/shamu/bluetooth
 endif
+BOARD_CUSTOM_BT_CONFIG := device/motorola/shamu/bluetooth/vnd_shamu.txt
 
 TARGET_USES_HWC2 := true
 SF_START_GRAPHICS_ALLOCATOR_SERVICE := true
