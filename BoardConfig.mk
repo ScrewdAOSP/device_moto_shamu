@@ -25,11 +25,11 @@ ENABLE_CPUSETS := true
 TARGET_NO_BOOTLOADER := true
 
 # Inline kernel building
-TARGET_KERNEL_CONFIG := shamu_defconfig
-TARGET_KERNEL_SOURCE := kernel/motorola/shamu
+TARGET_KERNEL_CONFIG := DARK_ENERGY_defconfig
+TARGET_KERNEL_SOURCE := kernel/moto/shamu
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-7.0/bin/arm-eabi-
 
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE :=  2048
@@ -117,7 +117,10 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-TARGET_RECOVERY_FSTAB = device/motorola/shamu/fstab.shamu
+# Compile libhwui in performance mode
+HWUI_COMPILE_FOR_PERF := true
+
+TARGET_RECOVERY_FSTAB = device/moto/shamu/fstab.shamu
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/motorola/shamu
 
@@ -149,4 +152,4 @@ BOARD_USES_QC_TIME_SERVICES := true
 
 TARGET_FS_CONFIG_GEN += device/motorola/shamu/config.fs
 
--include vendor/motorola/shamu/BoardConfigVendor.mk
+# -include vendor/motorola/shamu/BoardConfigVendor.mk

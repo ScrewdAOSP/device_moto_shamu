@@ -2,11 +2,10 @@
 restorecon_recursive /sys/devices/system/cpu/cpufreq
 on charger
     #low power governing
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-    restorecon_recursive /sys/devices/system/cpu/cpufreq/interactive
-    write /sys/devices/system/cpu/cpu1/online 0
-    write /sys/devices/system/cpu/cpu2/online 0
-    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
     write /sys/module/lpm_levels/enable_low_power/l2 4
     write /sys/module/msm_pm/modes/cpu0/power_collapse/suspend_enabled 1
     write /sys/module/msm_pm/modes/cpu0/power_collapse/idle_enabled 1
@@ -16,34 +15,32 @@ on charger
 
 on boot
     # Shamu boots with performance governor.
-    # Switch one core to interactive to set permissions, for power hal and system server.
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-    restorecon_recursive /sys/devices/system/cpu/cpufreq/interactive
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_slack
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/timer_slack
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/target_loads
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/target_loads
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/boost
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boost
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/boostpulse
-    #chown system system /sys/devices/system/cpu/cpufreq/interactive/input_boost
-    #chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/input_boost
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor
+    chown system system /dev/cpuctl/cpu.notify_on_migrate
+    chmod 0660 /dev/cpuctl/cpu.notify_on_migrate
+    stop mpdecision
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor alucard
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor alucard
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor alucard
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor alucard
+    write /sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk 600000000
+    write /sys/kernel/mm/uksm/max_cpu_percentage 10
+    write /proc/sys/vm/min_free_kbytes 4000
+    write /proc/sys/vm/dirty_ratio 40
+    write /proc/sys/vm/dirty_background_ratio 30
+    write /proc/sys/vm/dirty_writeback_suspend_centisecs 400
+    write /proc/sys/vm/dirty_writeback_active_centisecs 400
+    write /proc/sys/vm/dirty_writeback_centisecs 2000
+    write /proc/sys/vm/dirty_expire_centisecs 2000
+    write /proc/sys/vm/vfs_cache_pressure 101
+    write /sys/block/mmcblk0/queue/iosched/writes_starved 4
+    write /sys/block/mmcblk0/queue/iosched/fifo_batch 16
+    write /sys/block/mmcblk0/queue/iosched/sync_read_expire 350
+    write /sys/block/mmcblk0/queue/iosched/sync_write_expire 550
+    write /sys/block/mmcblk0/queue/iosched/async_read_expire 250
+    write /sys/block/mmcblk0/queue/iosched/async_write_expire 450
+    write /sys/block/mmcblk0/queue/iosched/sleep_latency_multiple 10
+    write /sys/module/zswap/parameters/enabled Y
+    write /sys/module/mdss_fb/parameters/backlight_dimmer Y
 
 on property:dev.bootcomplete=1
     write /sys/module/lpm_levels/enable_low_power/l2 4
@@ -67,21 +64,4 @@ on property:dev.bootcomplete=1
     write /sys/module/msm_pm/modes/cpu1/retention/idle_enabled 1
     write /sys/module/msm_pm/modes/cpu2/retention/idle_enabled 1
     write /sys/module/msm_pm/modes/cpu3/retention/idle_enabled 1
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
-    write /sys/module/msm_thermal/core_control/enabled 1
-    write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-
-    # cpufreq settings
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay 0
-    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 100
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1728000
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "30 300000:35 422400:40 652800:45 729600:50 960000:55 1267200:60 1574400:65 1728000:70 1958400:75 2265600:80 2457600:85 2649600:95"
-    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack 30000
-    write /sys/module/cpu_boost/parameters/input_boost_freq 1728000
-    write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 75000
-    write /sys/module/cpu_boost/parameters/input_boost_ms 150
     write /dev/cpuctl/cpu.notify_on_migrate 0
