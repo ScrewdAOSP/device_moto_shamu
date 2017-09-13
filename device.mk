@@ -215,6 +215,10 @@ PRODUCT_PACKAGES += \
     mm-jpeg-interface-test \
     mm-qcamera-app
 
+#Camera2
+PRODUCT_PACKAGES += \
+    Camera2
+
 PRODUCT_PACKAGES += \
     libion
 
