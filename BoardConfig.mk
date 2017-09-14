@@ -55,7 +55,7 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 # handled by the hardware composer
 MAX_VIRTUAL_DISPLAY_DIMENSION := 2048
 
-BOARD_EGL_CFG := device/motorola/shamu/egl.cfg
+BOARD_EGL_CFG := device/moto/shamu/egl.cfg
 
 BOARD_USES_ALSA_AUDIO := true
 
@@ -89,7 +89,7 @@ TARGET_BOARD_PLATFORM := msm8084
 TARGET_BOOTLOADER_BOARD_NAME := shamu
 TARGET_NO_RPC := true
 
-TARGET_BOARD_INFO_FILE := device/motorola/shamu/board-info.txt
+TARGET_BOARD_INFO_FILE := device/moto/shamu/board-info.txt
 
 # Render
 USE_OPENGL_RENDERER := true
@@ -100,7 +100,7 @@ TARGET_USES_HWC2 := true
 TARGET_USES_NEW_ION_API :=true
 TARGET_USES_ION := true
 TARGET_HW_DISK_ENCRYPTION := false
-TARGET_CRYPTFS_HW_PATH := device/motorola/shamu/cryptfs_hw
+TARGET_CRYPTFS_HW_PATH := device/moto/shamu/cryptfs_hw
 
 TARGET_TOUCHBOOST_FREQUENCY := 1500
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -120,12 +120,12 @@ HWUI_COMPILE_FOR_PERF := true
 
 TARGET_RECOVERY_FSTAB = device/moto/shamu/fstab.shamu
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/motorola/shamu
+TARGET_RELEASETOOLS_EXTENSIONS := device/moto/shamu
 
 # Support Native Layer RF cutback
 BOARD_USES_CUTBACK_IN_RILD := true
 
-BOARD_SEPOLICY_DIRS += device/motorola/shamu/sepolicy
+BOARD_SEPOLICY_DIRS += device/moto/shamu/sepolicy
 
 HAVE_ADRENO_SOURCE:= false
 
@@ -148,6 +148,6 @@ DONT_DEXPREOPT_PREBUILTS := true
 # Qualcomm Time Services
 BOARD_USES_QC_TIME_SERVICES := true
 
-TARGET_FS_CONFIG_GEN += device/motorola/shamu/config.fs
+TARGET_FS_CONFIG_GEN += device/moto/shamu/config.fs
 
-# -include vendor/motorola/shamu/BoardConfigVendor.mk
+# -include vendor/moto/shamu/BoardConfigVendor.mk
