@@ -19,12 +19,13 @@
 #
 # Everything in this directory will become public
 
+
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/init.shamu.rc:root/init.shamu.rc \
-    device/motorola/shamu/init.shamu.power.rc:root/init.shamu.power.rc \
-    device/motorola/shamu/init.shamu.usb.rc:root/init.shamu.usb.rc \
-    device/motorola/shamu/fstab.shamu:root/fstab.shamu \
-    device/motorola/shamu/ueventd.shamu.rc:root/ueventd.shamu.rc
+    device/moto/shamu/init.shamu.rc:root/init.shamu.rc \
+    device/moto/shamu/init.shamu.power.rc:root/init.shamu.power.rc \
+    device/moto/shamu/init.shamu.usb.rc:root/init.shamu.usb.rc \
+    device/moto/shamu/fstab.shamu:root/fstab.shamu \
+    device/moto/shamu/ueventd.shamu.rc:root/ueventd.shamu.rc
 
 # Vendor Interface Manifest
 PRODUCT_COPY_FILES += \
@@ -32,22 +33,22 @@ PRODUCT_COPY_FILES += \
 
 # Input device files for shamu
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/motorola/shamu/apq8084-taiko-tfa9890_stereo_co_Button_Jack.kl:system/usr/keylayout/apq8084-taiko-tfa9890_stereo_co_Button_Jack.kl \
-	device/motorola/shamu/atmel_mxt_ts.idc:system/usr/idc/atmel_mxt_ts.idc
+    device/moto/shamu/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/moto/shamu/apq8084-taiko-tfa9890_stereo_co_Button_Jack.kl:system/usr/keylayout/apq8084-taiko-tfa9890_stereo_co_Button_Jack.kl \
+	device/moto/shamu/atmel_mxt_ts.idc:system/usr/idc/atmel_mxt_ts.idc
 
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/audio_policy.conf:system/etc/audio_policy.conf \
-    device/motorola/shamu/audio_effects.conf:system/etc/audio_effects.conf
+    device/moto/shamu/audio_policy.conf:system/etc/audio_policy.conf \
+    device/moto/shamu/audio_effects.conf:system/etc/audio_effects.conf
 
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/media_profiles.xml:system/etc/media_profiles.xml \
-    device/motorola/shamu/media_codecs.xml:system/etc/media_codecs.xml \
-    device/motorola/shamu/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
+    device/moto/shamu/media_profiles.xml:system/etc/media_profiles.xml \
+    device/moto/shamu/media_codecs.xml:system/etc/media_codecs.xml \
+    device/moto/shamu/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/motorola/shamu/audio_platform_info.xml:system/etc/audio_platform_info.xml
+    device/moto/shamu/mixer_paths.xml:system/etc/mixer_paths.xml \
+    device/moto/shamu/audio_platform_info.xml:system/etc/audio_platform_info.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
@@ -83,7 +84,7 @@ PRODUCT_COPY_FILES += \
 
 # For GPS
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/sec_config:system/etc/sec_config
+    device/moto/shamu/sec_config:system/etc/sec_config
 
 # Touch firmware updater
 PRODUCT_COPY_FILES += \
@@ -94,11 +95,11 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4356
 
 # WiFi cal NVRAM file
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
+    device/moto/shamu/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
 
 # BT FW
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/bluetooth/BCM4356A2_001.003.015.0077.0214_ORC.hcd:$(TARGET_COPY_OUT_VENDOR)/firmware/bcm4354A2.hcd
+    device/moto/shamu/bluetooth/BCM4356A2_001.003.015.0077.0214_ORC.hcd:$(TARGET_COPY_OUT_VENDOR)/firmware/bcm4354A2.hcd
 
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
@@ -107,7 +108,7 @@ PRODUCT_PACKAGES += \
 
 # For SPN display
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/spn-conf.xml:system/etc/spn-conf.xml
+    device/moto/shamu/spn-conf.xml:system/etc/spn-conf.xml
 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 560dpi
@@ -117,7 +118,7 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 PRODUCT_CHARACTERISTICS := nosdcard
 
 DEVICE_PACKAGE_OVERLAYS := \
-    device/motorola/shamu/overlay
+    device/moto/shamu/overlay
 
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
@@ -320,7 +321,7 @@ PRODUCT_PACKAGES += \
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/gps.conf:system/etc/gps.conf
+    device/moto/shamu/gps.conf:system/etc/gps.conf
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -380,10 +381,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.qc.sub.rdump.on=0
 
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/init.shamu.diag.rc.userdebug:root/init.shamu.diag.rc
+    device/moto/shamu/init.shamu.diag.rc.userdebug:root/init.shamu.diag.rc
 else
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/init.shamu.diag.rc.user:root/init.shamu.diag.rc
+    device/moto/shamu/init.shamu.diag.rc.user:root/init.shamu.diag.rc
 endif
 
 # Enable for volte call
@@ -424,6 +425,17 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product-if-exists, hardware/qcom/msm8x84/msm8x84.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8x84/msm8x84-gpu-vendor.mk)
 
+<<<<<<< HEAD
+=======
+# setup dm-verity configs.
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/msm_sdcc.1/by-name/system
+$(call inherit-product, build/target/product/verity.mk)
+
+PRODUCT_PACKAGES += \
+    slideshow \
+    verity_warning_images
+
+>>>>>>> parent of 4d82dd8... Fix paths.
 # setup scheduler tunable
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.qualcomm.perf.cores_online=2
@@ -457,7 +469,7 @@ PRODUCT_OEM_PROPERTIES := \
 
 # Copy the qcril.db file from qcril to system. Useful to get the radio tech family for the camped operator
 PRODUCT_COPY_FILES += \
-    device/motorola/shamu/qcril.db:system/etc/ril/qcril.db
+    device/moto/shamu/qcril.db:system/etc/ril/qcril.db
 
 # Reduce client buffer size for fast audio output tracks
 PRODUCT_PROPERTY_OVERRIDES += \
