@@ -306,6 +306,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_network=10 \
     telephony.lteOnCdmaDevice=1
+    ro.telephony.get_imsi_from_sim=true
 
 # SIM based FSG loading & MCFG activation
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -400,6 +401,9 @@ endif
 
 # Enable for volte call
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+   ro.ril.force_eri_from_xml=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.hwui.texture_cache_size=72 \
