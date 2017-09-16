@@ -27,5 +27,5 @@
     <integer name="def_screen_off_timeout">30000</integer>
 
 	<!-- Disable bluetooth on first boot -->
-	<bool name="def_bluetooth_on">false</bool>
+	<bool name="def_bluetooth_on">true</bool>
 </resources>
