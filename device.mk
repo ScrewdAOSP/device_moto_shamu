@@ -128,6 +128,7 @@ DEVICE_PACKAGE_OVERLAYS := \
     device/moto/shamu/overlay
 
 PRODUCT_PACKAGES += \
+    android.hardware.tetheroffload.control@1.0_hal \
     android.hardware.wifi@1.0-service \
     libwpa_client \
     hostapd \
