@@ -1,0 +1,12 @@
+[
+ {
+   "repository" : "camcory/android_kernel_moto_shamu",
+   "target_path": "kernel/moto/shamu",
+   "branch"     : "Ox-test"
+ },
+ {
+   "repository" : "camcory/proprietary_vendor_motorola",
+   "target_path": "vendor/moto",
+   "branch"     : "O"
+ }
+]
