@@ -5,6 +5,11 @@
    "branch"     : "Ox-test"
  },
  {
+   "repository" : "camcory/platform_hardware_qcom_msm8x84",
+   "target_path": "hardware/qcom/msm8x84",
+   "branch"     : "Ox"
+ },
+ {
    "repository" : "camcory/proprietary_vendor_motorola",
    "target_path": "vendor/moto",
    "branch"     : "O"
