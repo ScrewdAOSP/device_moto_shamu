@@ -24,7 +24,7 @@ $(call inherit-product, vendor/aosip/config/common_full_phone.mk)
 # Inherit AOSP device configuration for shamu.
 $(call inherit-product, device/moto/shamu/aosp_shamu.mk)
 
-PRODUCT_NAME := aosip_shamu
+PRODUCT_NAME := screwd_shamu
 PRODUCT_DEVICE := shamu
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Nexus 6
